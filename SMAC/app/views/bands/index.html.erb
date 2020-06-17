@@ -1,0 +1,27 @@
+<h1>Bands</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Location</th>
+    <th>Formation date</th>
+    <th></th>
+  </tr>
+ 
+  <% @bands.each do |band| %>
+    <tr>
+      <td><%= band.name %></td>
+      <td><%= band.country %></td>
+      <td><%= band.location %></td>
+      <td><%= band.formation_date %></td>
+      <td><%= link_to 'Show', band_path(band) %></td>
+      <td><%= link_to 'Edit', edit_band_path(band) %></td>
+      <td><%= link_to 'Delete', band_path(band), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<hr>
+
+<%= link_to "Index", main_index_path %>

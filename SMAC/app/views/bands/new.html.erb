@@ -1,30 +1,4 @@
 
-<%= form_with scope: :article, local: true do |form| %>
-    <p>
-        <%= form.label :"Name:" %><br>
-        <%= form.text_field :name %>
-    </p>
+<%= render 'form' %>
 
-    <p>
-        <%= form.label :"Country:" %><br>
-        <%= form.text_field :country %>
-    </p>
-
-    <p>
-        <%= form.label :"Location:" %><br>
-        <%= form.text_field :location %>
-    </p>
-
-    <p>
-        <%= form.label :"Formation Date:" %><br>
-        <%= form.date_field :formationDate %>
-    </p>
-   
-    <p>
-      <%= form.submit %>
-    </p>
-  <% end %>
-
-<hr>
-
-<%= link_to "Index", main_index_path %>
+<%= link_to 'Cancel', main_index_path %>
