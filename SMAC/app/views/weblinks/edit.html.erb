@@ -1,0 +1,21 @@
+<%= form_for [ @band, @weblink ], local: true do |form| %>
+
+    <p>
+        <%= form.label :title %> <br>
+        <%= form.text_field :title %>
+    <p>
+
+    <p>
+        <%= form.label :url %> <br>
+        <%= form.text_field :url %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+
+<% end %>
+
+<hr>
+
+<%= link_to "Back", bands_path %>

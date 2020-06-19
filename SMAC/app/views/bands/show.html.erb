@@ -18,6 +18,18 @@
   <%= @band.formation_date %>
 </p>
 
+<p>
+  <strong>Weblink(s):</strong>
+</p>
+
+<ul>
+  <% @band.weblinks.each do |weblink| %>
+
+    <li> <a href= <%= weblink.url %> > <%= weblink.title %> </a> | <%= link_to "Edit", edit_band_weblink_path(@band, weblink) %> </li>
+
+  <% end %>
+</ul>
+
 <hr>
 
 <%= link_to "Back", bands_path %>

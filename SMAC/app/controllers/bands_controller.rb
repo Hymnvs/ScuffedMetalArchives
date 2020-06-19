@@ -20,7 +20,7 @@ class BandsController < ApplicationController
         @band = Band.new(band_params)
 
         if @band.save
-            redirect_to @band
+            redirect_to edit_band_path(@band)
         else
             render 'new'
         end
@@ -30,7 +30,7 @@ class BandsController < ApplicationController
         @band = Band.find(params[:id])
 
         if @band.update(band_params)
-            redirect_to @band
+            redirect_to edit_band_path(@band)
         else
             render 'edit'
         end
