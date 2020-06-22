@@ -15,7 +15,7 @@ class WeblinksController < ApplicationController
         @weblink = @band.weblinks.create(weblink_params)
 
         if @weblink.save
-            redirect_to band_weblink_path(@band, @weblink)
+            redirect_to bands_path
         else
             render "new"
         end
@@ -26,10 +26,18 @@ class WeblinksController < ApplicationController
         @weblink = Weblink.find(params[:id])
 
         if @weblink.update(weblink_params)
-            <! fix me >
+            redirect_to band_path(@band)
         else
-
+            render "edit"
         end
+    end
+
+    def destroy
+        @band = Band.find(params[:band_id])
+        @weblink = Weblink.find(params[:id])
+        @weblink.destroy
+
+        redirect_to band_path(@band)
     end
 
     private

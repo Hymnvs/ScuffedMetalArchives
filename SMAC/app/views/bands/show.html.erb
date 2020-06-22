@@ -1,34 +1,48 @@
 <p>
-  <strong>Name:</strong>
+  <strong> Name: </strong>
   <%= @band.name %>
 </p>
  
 <p>
-  <strong>Country:</strong>
+  <strong> Country: </strong>
   <%= @band.country %>
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong> Location: </strong>
   <%= @band.location %>
 </p>
 
 <p>
-  <strong>Formation date:</strong>
+  <strong> Formation date: </strong>
   <%= @band.formation_date %>
 </p>
 
 <p>
-  <strong>Weblink(s):</strong>
+  <strong> Weblink(s): </strong>
 </p>
 
-<ul>
+<table>
+
+  <tr>
+    <th> Title </th>
+    <th> URL </th>
+    <th> Ref </th>
+    <th> Action(s) </th>
+  </tr>
+
   <% @band.weblinks.each do |weblink| %>
 
-    <li> <a href= <%= weblink.url %> > <%= weblink.title %> </a> | <%= link_to "Edit", edit_band_weblink_path(@band, weblink) %> </li>
+    <tr>
+      <td> <%= weblink.title %> </td>
+      <td> <%= weblink.url %> </td>
+      <td> <a href= <%= weblink.url %> > <%= weblink.title %> </a> </td> 
+      <td> <%= link_to "Edit", edit_band_weblink_path(@band, weblink) %> </td> 
+      <td> <%= link_to 'Delete', band_weblink_path(@band, weblink), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %> </td>
+    </tr>
 
   <% end %>
-</ul>
+</table>
 
 <hr>
 

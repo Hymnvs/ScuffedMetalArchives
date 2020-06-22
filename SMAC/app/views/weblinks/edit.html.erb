@@ -1,5 +1,18 @@
 <%= form_for [ @band, @weblink ], local: true do |form| %>
 
+    <% if @weblink.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@weblink.errors.count, "error") %> prohibited this weblink from being saved:
+            </h2>
+        <ul>
+            <% @weblink.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
     <p>
         <%= form.label :title %> <br>
         <%= form.text_field :title %>
@@ -18,4 +31,4 @@
 
 <hr>
 
-<%= link_to "Back", bands_path %>
+<%= link_to "Back", band_path(@band) %>
