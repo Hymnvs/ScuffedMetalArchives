@@ -18,6 +18,16 @@
   <%= @band.formation_date %>
 </p>
 
+<!-- "only show the `latest` band logo" --!>
+<p>
+  <%= image_tag @band.band_logos.last %>
+</p>
+
+<!-- "only show the `latest` band picture" --!>
+<p>
+  <%= image_tag @band.band_pictures.last %>
+</p>
+
 <p>
   <strong> Weblink(s): </strong>
 </p>

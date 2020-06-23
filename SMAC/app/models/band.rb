@@ -4,6 +4,12 @@ class Band < ApplicationRecord
     # when a band gets destroyed, all its weblinks get destroyed too
     has_many :weblinks, dependent: :destroy
 
+    # a band can have multiple band pictures, this is part of the ActiveStorage
+    has_many_attached :band_pictures
+
+    # a band can have multiple band logos, this is part of the ActiveStorage
+    has_many_attached :band_logos
+
     # the fields below must always be filled in a form
     validates :name, presence: true
     validates :country, presence: true
