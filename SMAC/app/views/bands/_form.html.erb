@@ -35,6 +35,20 @@
         <%= form.date_field :formation_date %>
     </p>
 
+    <h2> Band Picture(s) </h2>
+
+    <p>
+        <%= form.file_field :band_pictures, multiple: true %>
+    </p>
+
+    <h2> Band Logo(s) </h2>
+
+    <p>
+        <%= form.file_field :band_logos, multiple: true %>
+    </p> 
+    
+    <hr>
+
     <p>
       <%= form.submit %>
     </p>
