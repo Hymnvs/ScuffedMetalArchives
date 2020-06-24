@@ -47,6 +47,14 @@
         <%= form.file_field :band_logos, multiple: true %>
     </p> 
     
+
+    <h2> Genre </h2>
+
+    <p>
+        <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_blank: true %>
+
+    </p>
+
     <hr>
 
     <p>

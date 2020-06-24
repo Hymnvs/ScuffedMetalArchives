@@ -54,6 +54,15 @@
   <% end %>
 </table>
 
+<p>
+    <strong> Genre(s) </strong>
+</p>
+
+  <% @band.genres.each do |genre| %>
+
+    <%= genre.name %> /
+
+  <% end %>
 <hr>
 
 <%= link_to "Back", bands_path %>
