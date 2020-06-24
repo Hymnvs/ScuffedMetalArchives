@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
   get 'main/index'
-  get 'main/submit'
+
+  get 'bands/new'
+
+  get 'genres/new'
 
   resources :bands do
     resources :weblinks
   end
 
-  get 'bands/new'
+  resources :genres
 
   root 'main#index'
 

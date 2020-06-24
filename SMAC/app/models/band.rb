@@ -4,6 +4,10 @@ class Band < ApplicationRecord
     # when a band gets destroyed, all its weblinks get destroyed too
     has_many :weblinks, dependent: :destroy
 
+    # this is a many to many relationship between band and genre through the table band_genres
+    has_many :band_genres
+    has_many :genres, :through => :band_genres
+
     # a band can have multiple band pictures, this is part of the ActiveStorage
     has_many_attached :band_pictures
 

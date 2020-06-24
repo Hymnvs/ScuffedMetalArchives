@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_075020) do
+ActiveRecord::Schema.define(version: 2020_06_24_081616) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,11 +33,26 @@ ActiveRecord::Schema.define(version: 2020_06_23_075020) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "band_genres", force: :cascade do |t|
+    t.integer "band_id", null: false
+    t.integer "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["band_id"], name: "index_band_genres_on_band_id"
+    t.index ["genre_id"], name: "index_band_genres_on_genre_id"
+  end
+
   create_table "bands", force: :cascade do |t|
     t.string "name"
     t.string "country"
     t.string "location"
     t.datetime "formation_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,5 +67,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_075020) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "band_genres", "bands"
+  add_foreign_key "band_genres", "genres"
   add_foreign_key "weblinks", "bands"
 end
