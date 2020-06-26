@@ -63,6 +63,15 @@
     <%= genre.name %> /
 
   <% end %>
+
+  <p>
+    <strong> Artist(s) </strong>
+  </p>
+
+  <% @band.artists.each do |artist| %>
+    <%= link_to artist.alias, artist_path(artist) %>
+  <% end %>
+
 <hr>
 
 <%= link_to "Back", bands_path %>
