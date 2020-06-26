@@ -6,11 +6,15 @@ Rails.application.routes.draw do
 
   get 'genres/new'
 
+  get 'artists/new'
+
   resources :bands do
     resources :weblinks
   end
 
   resources :genres
+
+  resources :artists
 
   root 'main#index'
 

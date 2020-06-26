@@ -48,7 +48,7 @@
     </p> 
     
 
-    <h2> Genre </h2>
+    <h2> Genre(s) </h2>
 
     <p>
         <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_blank: true %>
@@ -56,6 +56,12 @@
     </p>
 
     <hr>
+
+    <h2> Artist(s) </h2>
+
+    <p>
+        <%= form.collection_check_boxes :artist_ids, Artist.all, :id, :alias, include_blank: true %>
+    </p>
 
     <p>
       <%= form.submit %>
