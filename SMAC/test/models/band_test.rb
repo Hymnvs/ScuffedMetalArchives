@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class BandTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should not save band without required fields" do
+    band = Band.new
+    assert_not band.save
+  end
 end
