@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'artists/new'
 
+  get 'release_types/new'
+
   # defines the objects that we have
   resources :bands do
     # this is a nested object inside an object
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
   resources :genres
 
   resources :artists
+
+  resources :release_types
 
   root 'main#index'
 
