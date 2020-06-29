@@ -9,7 +9,7 @@ class ReleaseTypesController < ApplicationController
   # this will find the requested object
   # renders the show view by default
   def show
-    @releaseTypes = ReleaseType.find(params[:id])
+    @releaseType = ReleaseType.find(params[:id])
   end
 
   # this will create an empty release type object
