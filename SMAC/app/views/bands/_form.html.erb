@@ -1,70 +1,66 @@
 <%= form_with model: @band, local: true do |form| %>
    
-    <% if @band.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(@band.errors.count, "error") %> prohibited this band from being saved:
-            </h2>
-        <ul>
-            <% @band.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-        </ul>
-        </div>
-    <% end %>
+  <% if @band.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@band.errors.count, "error") %> prohibited this band from being saved:
+      </h2>
+    <ul>
+      <% @band.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    </div>
+  <% end %>
    
-    <h2> Band </h2>
+  <h2> Band </h2>
 
-    <p>
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
-    </p>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
 
-    <p>
-        <%= form.label :country %><br>
-        <%= form.text_field :country %>
-    </p>
+  <p>
+    <%= form.label :country %><br>
+    <%= form.text_field :country %>
+  </p>
 
-    <p>
-        <%= form.label :location %><br>
-        <%= form.text_field :location %>
-    </p>
+  <p>
+    <%= form.label :location %><br>
+    <%= form.text_field :location %>
+  </p>
 
-    <p>
-        <%= form.label :formation_date %><br>
-        <%= form.date_field :formation_date %>
-    </p>
+  <p>
+    <%= form.label :formation_date %><br>
+    <%= form.date_field :formation_date %>
+  </p>
 
-    <h2> Band Picture(s) </h2>
+  <h2> Band Picture(s) </h2>
 
-    <p>
-        <%= form.file_field :band_pictures, multiple: true %>
-    </p>
+  <p>
+    <%= form.file_field :band_pictures, multiple: true %>
+  </p>
 
-    <h2> Band Logo(s) </h2>
+  <h2> Band Logo(s) </h2>
 
-    <p>
-        <%= form.file_field :band_logos, multiple: true %>
-    </p> 
+  <p>
+    <%= form.file_field :band_logos, multiple: true %>
+  </p> 
     
+  <h2> Genre(s) </h2>
 
-    <h2> Genre(s) </h2>
+  <p>
+    <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_blank: true %>
+  </p>
 
-    <p>
-        <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_blank: true %>
+  <h2> Artist(s) </h2>
 
-    </p>
+  <p>
+    <%= form.collection_check_boxes :artist_ids, Artist.all, :id, :alias, include_blank: true %>
+  </p>
 
-    <hr>
-
-    <h2> Artist(s) </h2>
-
-    <p>
-        <%= form.collection_check_boxes :artist_ids, Artist.all, :id, :alias, include_blank: true %>
-    </p>
-
-    <p>
-      <%= form.submit %>
-    </p>
+  <p>
+    <%= form.submit %>
+  </p>
 
 <% end %>

@@ -1,17 +1,17 @@
 <h1> Genres </h1>
 
 <table>
-    <tr>
-        <th> Name </th>
-    </tr>
+  <tr>
+    <th> Name </th>
+  </tr>
 
-    <% @genres.each do |genre| %>
-        <tr>
-            <td> <%= genre.name %> </td>
-            <td> | <%= link_to 'Edit', edit_genre_path(genre) %> | </td>
-            <td> <%= link_to 'Delete', genre_path(genre), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %> </td>
-        </tr>
-    <% end %>
+  <% @genres.each do |genre| %>
+    <tr>
+      <td> <%= genre.name %> </td>
+      <td> | <%= link_to 'Edit', edit_genre_path(genre) %> | </td>
+      <td> <%= link_to 'Delete', genre_path(genre), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %> </td>
+    </tr>
+  <% end %>
 
 </table>
 
