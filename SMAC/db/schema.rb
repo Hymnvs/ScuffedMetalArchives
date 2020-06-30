@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_083324) do
+ActiveRecord::Schema.define(version: 2020_06_30_095716) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2020_06_30_083324) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "artist_releases", force: :cascade do |t|
+    t.integer "artist_id", null: false
+    t.integer "release_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_artist_releases_on_artist_id"
+    t.index ["release_id"], name: "index_artist_releases_on_release_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -104,6 +113,8 @@ ActiveRecord::Schema.define(version: 2020_06_30_083324) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "artist_releases", "artists"
+  add_foreign_key "artist_releases", "releases"
   add_foreign_key "band_artists", "artists"
   add_foreign_key "band_artists", "bands"
   add_foreign_key "band_genres", "bands"

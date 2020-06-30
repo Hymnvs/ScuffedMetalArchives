@@ -3,6 +3,10 @@ class Release < ApplicationRecord
   belongs_to :release_type, optional: true
   belongs_to :band, optional: true
 
+  # this is a many to many relationship between artist and release through the table artist_releases
+  has_many :artist_releases
+  has_many :artists, :through => :artist_releases
+
   # a release has one release type
   has_one :release_type
 

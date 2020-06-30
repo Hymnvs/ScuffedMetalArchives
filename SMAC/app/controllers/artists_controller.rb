@@ -60,7 +60,7 @@ class ArtistsController < ApplicationController
     # define the objects parameters here to unclutter the code
     # selfie is a picture and is part of the ActiveStorage, not the Artist model directly
     def artist_params
-      params.require(:artist).permit(:alias, :real_name, :age, :place_of_origin, :gender, :info, :selfie)
+      params.require(:artist).permit(:alias, :real_name, :age, :place_of_origin, :gender, :info, :selfie, release_ids: [])
     end
 
 end

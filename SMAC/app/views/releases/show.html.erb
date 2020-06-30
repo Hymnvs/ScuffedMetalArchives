@@ -19,6 +19,16 @@
 </p>
 
 <p>
+  <strong> Artist(s) </strong>
+</p>
+
+<p>
+  <% @release.artists.each do |artist| %>
+    <%= link_to artist.alias, artist_path(artist) %>
+  <% end %>
+</p>
+
+<p>
   <%= if not @release.cover.blank?
         image_tag @release.cover
       end %>
