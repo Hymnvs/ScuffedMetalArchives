@@ -28,6 +28,12 @@
   <%= @artist.info %>
 </p>
 
+<p>
+  <%= if not @artist.selfie.blank?
+        image_tag(@artist.selfie, size: 512)
+      end %>
+</p>
+
 <hr>
 
 <%= link_to "Back", artists_path %>
