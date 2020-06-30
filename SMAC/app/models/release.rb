@@ -5,6 +5,9 @@ class Release < ApplicationRecord
   # a release has one release type
   has_one :release_type
 
+  # a release has one cover image, this is part of the ActiveStorage
+  has_one_attached :cover
+
 	# the fields below must always be filled in a form
 	validates :title, presence: true
 	validates :release_type_id, presence: true

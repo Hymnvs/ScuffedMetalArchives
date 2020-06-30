@@ -20,12 +20,16 @@
 
 <!-- "only show the `latest` band logo" --!>
 <p>
-  <%= image_tag @band.band_logos.last %>
+  <%= if not @band.band_logos.last.blank?
+        image_tag @band.band_logos.last 
+      end %>
 </p>
 
 <!-- "only show the `latest` band picture" --!>
 <p>
-  <%= image_tag @band.band_pictures.last %>
+  <%= if not @band.band_pictures.last.blank?
+        image_tag @band.band_pictures.last 
+      end %>
 </p>
 
 <p>

@@ -3,16 +3,13 @@
 <table>
   <tr>
     <th> Title </th>
-    <th> Release type </th>
-    <th> Release date </th>
   </tr>
 
   <% @releases.each do |release| %>
     <tr>
       <td> <%= release.title %> </td>
-      <td> | <%= link_to release.release_type_id, edit_release_type_path(release.release_type_id) %> </td>
-      <td> | <%= release.release_date %> </td>
-      <td> | <%= link_to 'Edit', edit_release_path(release) %> | </td>
+      <td> | <%= link_to 'Show', release_path(release) %> | </td>
+      <td> <%= link_to 'Edit', edit_release_path(release) %> | </td>
       <td> <%= link_to 'Delete', release_path(release), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %> </td>
     </tr>
   <% end %>

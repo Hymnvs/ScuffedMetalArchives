@@ -58,8 +58,9 @@ class ReleasesController < ApplicationController
 
   private
    # define the objects parameters here to unclutter the code
+   # cover is not part of the actual model, it is an attached image handled by the ActiveStorage
     def release_params
-      params.require(:release).permit(:title, :release_type_id, :release_date)
+      params.require(:release).permit(:title, :release_type_id, :release_date, :cover)
     end
 
 end

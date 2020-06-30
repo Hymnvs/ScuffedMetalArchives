@@ -1,0 +1,24 @@
+<p>
+  <strong> Title: </strong>
+  <%= @release.title %>
+</p>
+ 
+<p>
+  <strong> Release type: </strong>
+  <%= @release.release_type_id %>
+</p>
+
+<p>
+  <strong> Release date: </strong>
+  <%= @release.release_date %>
+</p>
+
+<p>
+  <%= if not @release.cover.blank?
+        image_tag @release.cover
+      end %>
+</p>
+
+<hr>
+
+<%= link_to "Back", releases_path %>
