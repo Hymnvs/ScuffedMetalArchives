@@ -9,7 +9,7 @@ class GenresController < ApplicationController
   # this will find the requested object
   # renders the show view by default
   def show
-    @genres = Genre.find(params[:id])
+    @genre = Genre.find(params[:id])
   end
 
   # this will create an empty genre object

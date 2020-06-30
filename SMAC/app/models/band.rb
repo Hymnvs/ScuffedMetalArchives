@@ -12,6 +12,9 @@ class Band < ApplicationRecord
   has_many :band_genres
   has_many :genres, :through => :band_genres
 
+  # this is a one to many relationship between band and releasesm, a band can have X releases
+  has_many :releases, dependent: :destroy
+
   # a band can have multiple band pictures, this is part of the ActiveStorage
   has_many_attached :band_pictures
 

@@ -1,0 +1,21 @@
+<h1> Releases </h1>
+
+<table>
+  <tr>
+    <th> Title </th>
+  </tr>
+
+  <% @releases.each do |release| %>
+    <tr>
+      <td> <%= release.title %> </td>
+      <td> | <%= link_to 'Show', release_path(release) %> | </td>
+      <td> <%= link_to 'Edit', edit_release_path(release) %> | </td>
+      <td> <%= link_to 'Delete', release_path(release), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %> </td>
+    </tr>
+  <% end %>
+
+</table>
+
+<hr>
+
+<%= link_to "Index", main_index_path %>

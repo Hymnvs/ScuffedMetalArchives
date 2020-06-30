@@ -1,0 +1,27 @@
+<%= form_with model: @releaseType, local: true do |form| %>
+   
+  <% if @releaseType.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@releaseType.errors.count, "error") %> prohibited this release type from being saved:
+      </h2>
+    <ul>
+      <% @releaseType.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    </div>
+  <% end %>
+
+  <h2> Release Type </h2>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

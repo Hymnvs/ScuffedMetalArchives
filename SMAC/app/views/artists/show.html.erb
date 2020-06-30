@@ -28,6 +28,28 @@
   <%= @artist.info %>
 </p>
 
+<p>
+  <%= if not @artist.selfie.blank?
+        image_tag(@artist.selfie, size: 512)
+      end %>
+</p>
+
+<p> <strong> Band(s): </strong> </p>
+
+<% @artist.bands.each do |band| %>
+
+  <p> <%= band.name %> </p>
+
+<% end %>
+
+<p> <strong> Release(s): </strong> </p>
+
+<% @artist.releases.each do |release| %>
+
+  <p> <%= release.title %> </p>
+
+<% end %>
+
 <hr>
 
 <%= link_to "Back", artists_path %>

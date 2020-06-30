@@ -18,14 +18,70 @@
   <%= @band.formation_date %>
 </p>
 
+<p>
+    <strong> Genre(s) </strong>
+</p>
+
+<p>  
+  <% @band.genres.each do |genre| %>
+    <%= genre.name %> /
+  <% end %>
+</p>
+
+<p>
+  <strong> Artist(s) </strong>
+</p>
+
+<p>
+  <% @band.artists.each do |artist| %>
+    <%= link_to artist.alias, artist_path(artist) %>
+  <% end %>
+</p>
+
+<p>
+  <strong> Release(s): </strong>
+</p>
+
+<table>
+
+    <tr>
+      <th> Title </th>
+      <th> Type </th>
+      <th> Year </th>
+    </tr>
+
+    <% @band.releases.each do |release| %>
+
+      <tr>
+        <td> <%= link_to release.title, release_path(release) %> </td>
+        <td> <%= ReleaseType.find_by(id: release.release_type_id).name %> </td>
+        <td> <%= release.release_date %> </td>
+      </tr>
+
+    <% end %>
+
+</table>
+
+<p>
+    <strong> Logo </strong>
+</p>
+
 <!-- "only show the `latest` band logo" --!>
 <p>
-  <%= image_tag @band.band_logos.last %>
+  <%= if not @band.band_logos.last.blank?
+        image_tag @band.band_logos.last
+      end %>
+</p>
+
+<p>
+    <strong> Band picture </strong>
 </p>
 
 <!-- "only show the `latest` band picture" --!>
 <p>
-  <%= image_tag @band.band_pictures.last %>
+  <%= if not @band.band_pictures.last.blank?
+        image_tag @band.band_pictures.last
+      end %>
 </p>
 
 <p>
@@ -52,25 +108,8 @@
     </tr>
 
   <% end %>
+
 </table>
-
-<p>
-    <strong> Genre(s) </strong>
-</p>
-
-  <% @band.genres.each do |genre| %>
-
-    <%= genre.name %> /
-
-  <% end %>
-
-<p>
-  <strong> Artist(s) </strong>
-</p>
-
-<% @band.artists.each do |artist| %>
-  <%= link_to artist.alias, artist_path(artist) %>
-<% end %>
 
 <hr>
 

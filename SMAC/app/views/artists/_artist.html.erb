@@ -45,6 +45,18 @@
     <%= form.text_area :info %>
   </p>
 
+  <h2> Picture </h2>
+
+    <p>
+      <%= form.file_field :selfie %>
+    </p>
+
+  <h2> Release(s) </h2>
+
+   <p>
+     <%= form.collection_check_boxes :release_ids, Release.all, :id, :title, include_blank: true %>
+   </p>
+
   <p>
     <%= form.submit %>
   </p>

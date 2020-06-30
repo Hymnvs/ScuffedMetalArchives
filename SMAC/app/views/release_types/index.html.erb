@@ -1,0 +1,20 @@
+<h1> Release Types </h1>
+
+<table>
+  <tr>
+    <th> Name </th>
+  </tr>
+
+  <% @releaseTypes.each do |releaseType| %>
+    <tr>
+      <td> <%= releaseType.name %> </td>
+      <td> | <%= link_to 'Edit', edit_release_type_path(releaseType) %> | </td>
+      <td> <%= link_to 'Delete', release_type_path(releaseType), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %> </td>
+    </tr>
+  <% end %>
+
+</table>
+
+<hr>
+
+<%= link_to "Index", main_index_path %>

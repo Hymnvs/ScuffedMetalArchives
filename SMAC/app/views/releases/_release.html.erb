@@ -1,0 +1,54 @@
+<%= form_with model: @release, local: true do |form| %>
+   
+  <% if @release.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@release.errors.count, "error") %> prohibited this release from being saved:
+      </h2>
+    <ul>
+      <% @release.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    </div>
+  <% end %>
+
+  <h2> Release </h2>
+
+  <p>
+    <%= form.label :band_id %><br>
+    <%= form.collection_select(:band_id, Band.all, :id, :name, prompt: true) %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :release_type_id %><br>
+    <%= form.collection_select(:release_type_id, ReleaseType.all, :id, :name, prompt: true) %>
+  </p>
+
+  <p>
+    <%= form.label :release_date %><br>
+    <%= form.date_field :release_date %>
+  </p>
+
+  <h2> Cover art </h2>
+
+  <p>
+    <%= form.file_field :cover %>
+  </p>
+
+  <h2> Artist(s) </h2>
+
+  <p>
+    <%= form.collection_check_boxes :artist_ids, Artist.all, :id, :alias, include_blank: true %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

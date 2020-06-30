@@ -7,7 +7,6 @@ one:
   place_of_origin: MyString
   gender: MyString
   info: MyString
-  band: one
 
 two:
   alias: MyString
@@ -16,4 +15,3 @@ two:
   place_of_origin: MyString
   gender: MyString
   info: MyString
-  band: two
