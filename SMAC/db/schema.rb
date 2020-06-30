@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_114555) do
+ActiveRecord::Schema.define(version: 2020_06_30_083324) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2020_06_29_114555) do
     t.date "release_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "band_id", null: false
+    t.index ["band_id"], name: "index_releases_on_band_id"
     t.index ["release_type_id"], name: "index_releases_on_release_type_id"
   end
 
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_114555) do
   add_foreign_key "band_artists", "bands"
   add_foreign_key "band_genres", "bands"
   add_foreign_key "band_genres", "genres"
+  add_foreign_key "releases", "bands"
   add_foreign_key "releases", "release_types"
   add_foreign_key "weblinks", "bands"
 end

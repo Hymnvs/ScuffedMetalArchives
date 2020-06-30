@@ -1,11 +1,16 @@
 <p>
+  <strong> Band: </strong>
+  <%= Band.find_by(id: @release.band_id).name %>
+</p>
+
+<p>
   <strong> Title: </strong>
   <%= @release.title %>
 </p>
  
 <p>
   <strong> Release type: </strong>
-  <%= @release.release_type_id %>
+  <%= ReleaseType.find_by(id: @release.release_type_id).name %>
 </p>
 
 <p>
