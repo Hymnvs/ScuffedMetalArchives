@@ -1,33 +1,4 @@
-<div class="menu">
-
-  <div class="menu_logo">
-    <%= image_tag("menu_logo.png", alt: "wtf is this picture")%>
-  </div
-
-  <ul>
-    <li class="menu_item"> <%= link_to "Bands", bands_path %> </li>
-      <ul>
-        <li class="menu_item"> <%= link_to "Submit a band", bands_new_path %> </li>
-      </ul>
-    <li class="menu_item"> <%= link_to "Artists", artists_path %> </li>
-      <ul>
-        <li class="menu_item"> <%= link_to "Submit an artist", artists_new_path %> </li>
-      </ul>
-    <li class="menu_item"> <%= link_to "Releases", releases_path %> </li>
-      <ul>
-        <li class="menu_item"> <%= link_to "Submit a release", releases_new_path %> </li>
-      </ul>
-    <li class="menu_item"> <%= link_to "Genres", genres_path %> </li>
-      <ul>
-        <li class="menu_item">   <%= link_to "Submit a genre", genres_new_path %> </li>
-      </ul>
-    <li class="menu_item"> <%= link_to "Release types", release_types_path %> </li>
-      <ul>
-        <li class="menu_item">   <%= link_to "Submit a release type", release_types_new_path %> </li>
-      </ul>
-  </ul>
-
-</div>
+<%= render 'menu' %>
 
 <div class="base">
 
