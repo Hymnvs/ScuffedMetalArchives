@@ -1,3 +1,34 @@
+<div class="menu">
+
+  <div class="menu_logo">
+    <%= image_tag("menu_logo.png", alt: "wtf is this picture")%>
+  </div
+
+  <ul>
+    <li class="menu_item"> <%= link_to "Bands", bands_path %> </li>
+      <ul>
+        <li class="menu_item"> <%= link_to "Submit a band", bands_new_path %> </li>
+      </ul>
+    <li class="menu_item"> <%= link_to "Artists", artists_path %> </li>
+      <ul>
+        <li class="menu_item"> <%= link_to "Submit an artist", artists_new_path %> </li>
+      </ul>
+    <li class="menu_item"> <%= link_to "Releases", releases_path %> </li>
+      <ul>
+        <li class="menu_item"> <%= link_to "Submit a release", releases_new_path %> </li>
+      </ul>
+    <li class="menu_item"> <%= link_to "Genres", genres_path %> </li>
+      <ul>
+        <li class="menu_item">   <%= link_to "Submit a genre", genres_new_path %> </li>
+      </ul>
+    <li class="menu_item"> <%= link_to "Release types", release_types_path %> </li>
+      <ul>
+        <li class="menu_item">   <%= link_to "Submit a release type", release_types_new_path %> </li>
+      </ul>
+  </ul>
+
+</div>
+
 <div class="base">
 
   <h1> Scuffed Metal Archives Clone </h1>
@@ -5,16 +36,5 @@
   <p> Welcome, things will be added here over time. </p>
 
   <p> Now with css and bootstrap! Yay! </p>
-
-  <%= link_to "Submit a band", bands_new_path, :class => 'btn btn-primary' %>
-  <%= link_to "Bands", bands_path, :class => 'btn btn-secondary' %>
-  <%= link_to "Submit an artist", artists_new_path, :class => 'btn btn-success' %>
-  <%= link_to "Artists", artists_path, :class => 'btn btn-danger' %>
-  <%= link_to "Submit a release", releases_new_path, :class => 'btn btn-warning' %>
-  <%= link_to "Releases", releases_path, :class => 'btn btn-info' %>
-  <%= link_to "Submit a genre", genres_new_path, :class => 'btn btn-light' %>
-  <%= link_to "Genres", genres_path, :class => 'btn btn-dark' %>
-  <%= link_to "Submit a release type", release_types_new_path, :class => 'btn btn-link' %>
-  <%= link_to "Release types", release_types_path, :class => 'btn' %>
 
 </div>
