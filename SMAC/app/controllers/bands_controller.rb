@@ -18,6 +18,10 @@ class BandsController < ApplicationController
     @band = Band.new
   end
 
+  def list
+    @bands = Band.where('substr(name, 1, 1) = ?', params[:letter])
+  end
+
   # this will find the requested object
   # renders the edit view by default
   def edit

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'bands/new'
 
+  get 'bands/list'
+
   get 'genres/new'
 
   get 'artists/new'
