@@ -1,3 +1,25 @@
 // Place all the styles related to the Bands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// alphabetical search bar
+.alpha_search_bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.alpha_search_bar li {
+  float: left;
+}
+
+.alpha_search_bar li a {
+  display: inline-table;
+  padding: 16px;
+  font-size: 2em;
+}
+
+.alpha_search_bar li a:hover {
+  background-color: #333333;
+}

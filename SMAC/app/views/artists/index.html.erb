@@ -1,23 +1,22 @@
-<h1> Artists </h1>
+<%= render 'main/menu' %>
 
-<table>
-  <tr>
-    <th> Alias </th>
-    <th> Real name </th>
-  </tr>
+<div class="base">
 
-  <% @artists.each do |artist| %>
-    <tr>
-      <td> <%= artist.alias %> </td>
-      <td> <%= artist.real_name %> </td>
-      <td> | <%= link_to 'Show', artist_path(artist) %> | </td>
-      <td> <%= link_to 'Edit', edit_artist_path(artist) %> | </td>
-      <td> <%= link_to 'Delete', artist_path(artist), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %> </td>
-    </tr>
-  <% end %>
+  <table class="table table-striped table-bordered table-hover table-dark">
+    <thead class="thead-dark">
+      <tr>
+        <th> Artist </th>
+        <th> Real name </th>
+      </tr>
+    <thead>
 
-</table>
+    <% @artists.each do |artist| %>
+      <tbody>
+        <tr>
+          <th cope="row"> <%= link_to artist.alias, artist_path(artist) %> </th>
+          <td> <%= artist.real_name %> </td>
+        </tr>
+      </tbody>
+    <% end %>
 
-<hr>
-
-<%= link_to "Index", main_index_path %>
+  </table>

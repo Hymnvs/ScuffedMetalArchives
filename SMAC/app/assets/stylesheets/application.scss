@@ -14,5 +14,65 @@
  *= require_self
  */
 
- @import "bootstrap";
- 
+@import "bootstrap";
+
+body {
+  margin: 0;
+}
+
+html {
+  //grey for the moment to see all the containers clearly
+  background-color: grey;
+}
+
+.base {
+  text-align: center;
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 2.5%;
+  left: 20%;
+  width: 60%;
+}
+
+.base h1 {
+  font-size: 7em;
+}
+
+.base h2 {
+  font-size: 5em;
+}
+
+.base h3 {
+  font-size: 3em;
+}
+
+.base p {
+  font-size: 2em;
+}
+
+.base table {
+  font-size: 2em;
+}
+
+.menu {
+  padding-top:20px;
+  padding-left:2%;
+  width: 17%;
+  position: absolute;
+  top: 2.5%;
+  left: 1.5%;
+  line-height: 2em;
+  background-color: black;
+}
+
+.menu_item {
+  list-style-type: none;
+  padding: 15px;
+  margin: 0;
+}
+
+.menu_item a {
+  font-size: 2em;
+  color: white;
+}
