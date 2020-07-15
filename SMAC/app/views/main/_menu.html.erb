@@ -1,6 +1,6 @@
 <div class="menu">
 
-  <div class="menu_logo">
+  <div>
     <%= link_to main_index_path do %>
       <%= image_tag("menu_logo.png", alt: "SMAC") %>
     <% end %>
@@ -21,11 +21,11 @@
       </ul>
     <li class="menu_item"> <%= link_to "Genres", genres_path %> </li>
       <ul>
-        <li class="menu_item">   <%= link_to "Submit a genre", genres_new_path %> </li>
+        <li class="menu_item"> <%= link_to "Submit a genre", genres_new_path %> </li>
       </ul>
     <li class="menu_item"> <%= link_to "Release types", release_types_path %> </li>
       <ul>
-        <li class="menu_item">   <%= link_to "Submit a release type", release_types_new_path %> </li>
+        <li class="menu_item"> <%= link_to "Submit a release type", release_types_new_path %> </li>
       </ul>
   </ul>
 

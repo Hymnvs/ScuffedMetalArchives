@@ -1,116 +1,97 @@
-<p>
-  <strong> Name: </strong>
-  <%= @band.name %>
-</p>
+<%= render "main/menu" %>
+<%= render "picture_view" %>
+
+<div class="base">
+
+  <br>
+
+  <h1> <%= @band.name %> </h1>
  
-<p>
-  <strong> Country: </strong>
-  <%= @band.country %>
-</p>
+  <br>
 
-<p>
-  <strong> Location: </strong>
-  <%= @band.location %>
-</p>
+  <div class="band_view_left_1">
+    <p> Country of origin: </p>
+    <p> Location: </p>
+    <p> Formed in: </p>
+  </div>
 
-<p>
-  <strong> Formation date: </strong>
-  <%= @band.formation_date %>
-</p>
+  <div class="band_view_right_1">
+    <p> <%= @band.country %> </p>
+    <p> <%= @band.location %> </p>
+    <p> <%= @band.formation_date %> </p>
+  </div>
 
-<p>
-    <strong> Genre(s) </strong>
-</p>
+  <div class="band_view_left_2">
+    <p> Genre: </p>
+  </div>
 
-<p>  
-  <% @band.genres.each do |genre| %>
-    <%= genre.name %> /
-  <% end %>
-</p>
+  <div class="band_view_right_2">
+    <p>
+      <% @band.genres.each do |genre| %>
+        <%= genre.name %> /
+      <% end %>
+    </p>
+  </div>
+  
+  <div class="band_view_info">
 
-<p>
-  <strong> Artist(s) </strong>
-</p>
+    <ul class="nav-tabs nav">
+      <li class="nav-item">
+        <a href="#disco" data-toggle="tab" class="active nav-link">Discography</a>
+      </li>
+      <li class="nav-item">
+        <a href="#members" data-toggle="tab" class="nav-link">Members</a>
+      </li>
+      <li class="nav-item">
+        <a href="#links" data-toggle="tab" class="nav-link">Related Links</a>
+      </li>
+    </ul>
 
-<p>
-  <% @band.artists.each do |artist| %>
-    <%= link_to artist.alias, artist_path(artist) %>
-  <% end %>
-</p>
+    <div class="tab-content">
+      <div id="disco" role="tabpanel" class="tab-pane active container">
+        <table>
+          <tr>
+            <th> Title </th>
+            <th> Type </th>
+            <th> Year </th>
+          </tr>
+          <% @band.releases.each do |release| %>
+            <tr>
+              <td> <%= link_to release.title, release_path(release) %> </td>
+              <td> <%= ReleaseType.find_by(id: release.release_type_id).name %> </td>
+              <td> <%= release.release_date %> </td>
+            </tr>
+          <% end %>
+         </table>
+      </div>
+      <div id="members" role="tabpanel" class="tab-pane container">
+        <p> I think i need JavaScript here... no clue how :D </p>
+        <p>
+          <% @band.artists.each do |artist| %>
+            <%= link_to artist.alias, artist_path(artist) %>
+          <% end %>
+        </p>
+      </div>
+      <div id="links" role="tabpanel" class="tab-pane container">
+        <p> I think i need JavaScript here... no clue how :D </p>
+        <table>
+          <tr>
+            <th> Title </th>
+            <th> URL </th>
+            <th> Ref </th>
+            <th> Action(s) </th>
+          </tr>
+          <% @band.weblinks.each do |weblink| %>
+            <tr>
+              <td> <%= weblink.title %> </td>
+              <td> <%= weblink.url %> </td>
+              <td> <a href= <%= weblink.url %> > <%= weblink.title %> </a> </td> 
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
 
-<p>
-  <strong> Release(s): </strong>
-</p>
+  </div>
 
-<table>
-
-    <tr>
-      <th> Title </th>
-      <th> Type </th>
-      <th> Year </th>
-    </tr>
-
-    <% @band.releases.each do |release| %>
-
-      <tr>
-        <td> <%= link_to release.title, release_path(release) %> </td>
-        <td> <%= ReleaseType.find_by(id: release.release_type_id).name %> </td>
-        <td> <%= release.release_date %> </td>
-      </tr>
-
-    <% end %>
-
-</table>
-
-<p>
-    <strong> Logo </strong>
-</p>
-
-<!-- "only show the `latest` band logo" --!>
-<p>
-  <%= if not @band.band_logos.last.blank?
-        image_tag @band.band_logos.last
-      end %>
-</p>
-
-<p>
-    <strong> Band picture </strong>
-</p>
-
-<!-- "only show the `latest` band picture" --!>
-<p>
-  <%= if not @band.band_pictures.last.blank?
-        image_tag @band.band_pictures.last
-      end %>
-</p>
-
-<p>
-  <strong> Weblink(s): </strong>
-</p>
-
-<table>
-
-  <tr>
-    <th> Title </th>
-    <th> URL </th>
-    <th> Ref </th>
-    <th> Action(s) </th>
-  </tr>
-
-  <% @band.weblinks.each do |weblink| %>
-
-    <tr>
-      <td> <%= weblink.title %> </td>
-      <td> <%= weblink.url %> </td>
-      <td> <a href= <%= weblink.url %> > <%= weblink.title %> </a> </td> 
-      <td> <%= link_to "Edit", edit_band_weblink_path(@band, weblink) %> </td> 
-      <td> <%= link_to 'Delete', band_weblink_path(@band, weblink), method: :delete, data: { confirm: 'Are you sure you want to remove this record?' } %> </td>
-    </tr>
-
-  <% end %>
-
-</table>
-
-<hr>
-
-<%= link_to "Back", bands_path %>
+</div>
